@@ -1,0 +1,14 @@
+<form act="setting">
+  <?=@form_text(['label'=>'网站名:','id'=>'site_name','value'=>config('site_name'),'col'=>[3,9]])?>
+  <?=@form_text(['label'=>'文字LOGO:','id'=>'text_logo','value'=>config('text_logo')])?>
+  <?=@form_text(['label'=>'Smtp 主机:','id'=>'smtp_host','value'=>config('smtp_host')])?>
+  <?=@form_text(['label'=>'Smtp 端口:','id'=>'smtp_port','value'=>config('smtp_port')])?>
+  <?=@form_text(['label'=>'Smtp 用户名:','id'=>'smtp_user','value'=>config('smtp_user')])?>
+  <?=@form_text(['label'=>'Smtp 密码:','id'=>'smtp_password','value'=>config('smtp_password')])?>
+  <?=@form_text(['label'=>'Btc 协议:','id'=>'btc_protocol','value'=>config('btc_protocol')])?>
+  <?=@form_text(['label'=>'Btc 主机:','id'=>'btc_host','value'=>config('btc_host')])?>
+  <?=@form_text(['label'=>'Btc 端口:','id'=>'btc_port','value'=>config('btc_port')])?>
+  <?=@form_text(['label'=>'Btc 用户名:','id'=>'btc_user','value'=>config('btc_user')])?>
+  <?=@form_text(['label'=>'Btc 密码:','id'=>'btc_password','value'=>config('btc_password')])?>
+  <?=@form_submit('设置')?>
+</form>

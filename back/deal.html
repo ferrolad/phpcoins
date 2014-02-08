@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <th>买家</th>
+    <th>卖家</th>
+    <th>买入价</th>
+    <th>卖出价</th>
+    <th>数量</th>
+    <th>时间</th>
+  </thead>
+<? foreach(db_page("select buy.price buy_price,sell.price sell_price,buy.user_id buyer,sell.user_id seller,deal.ctime ctime,deal.amount amount from deal inner join trade buy on deal.buy_trade=buy.id inner join trade sell on deal.sell_trade=sell.id order by deal.ctime desc") as $v):?>
+  <tr>
+    <td>
+      <?=user_info($v['buyer'])['email']?>
+    </td>
+    <td>
+      <?=user_info($v['seller'])['email']?>
+    </td>
+    <td>
+      <?=$v['buy_price']?>
+    </td>
+    <td>
+      <?=$v['sell_price']?>
+    </td>
+    <td>
+      <?=$v['amount']?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+  </tr>
+<? endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

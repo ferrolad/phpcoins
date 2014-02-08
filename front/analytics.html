@@ -1,0 +1,14 @@
+<div class="well well-sm">
+  最新成交价:<?=db("select * from trade where status=1 and ctime > {$GLOBALS['ONE_DAY_AGO']} order by ctime desc")->fetch()['price']?>
+  &nbsp;&nbsp;
+  买一价:<?=db("select * from trade where type=0 and status=1 and ctime > {$GLOBALS['ONE_DAY_AGO']} order by ctime desc")->fetch()['price'] ?>
+  &nbsp;&nbsp;
+  卖一价:<?=db("select * from trade where type=1 and status=1 and ctime > {$GLOBALS['ONE_DAY_AGO']} order by ctime desc")->fetch()['price']?>
+  &nbsp;&nbsp;
+  最高价:<?=db("select * from trade where status=1 and ctime > {$GLOBALS['ONE_DAY_AGO']} order by price desc")->fetch()['price']?>
+  &nbsp;&nbsp;
+  最低价:<?=db("select * from trade where status=1 and ctime > {$GLOBALS['ONE_DAY_AGO']} order by price asc")->fetch()['price']?>
+</div>
+
+
+

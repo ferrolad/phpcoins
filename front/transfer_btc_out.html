@@ -1,0 +1,11 @@
+<div well>
+  <form act="transfer">
+    <?=@form_static(['label'=>'最多可转出:','value'=>user_info()['btc'],'col'=>[2,3]])?>
+    <?=@form_text(['label'=>'地址:','id'=>'address'])?>
+    <?=@form_text(['label'=>'数量:','id'=>'amount'])?>
+    <? if(user_info()['auth_withdraw']):?>
+    <?=@form_text(['label'=>'认证码:','id'=>'auth'])?>
+    <? endif?>
+    <?=@form_submit('转出')?>
+  </form>
+</div>

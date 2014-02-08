@@ -1,0 +1,42 @@
+<table>
+  <thead>
+    <th>类型</th>
+    <th>价格</th>
+    <th>数量</th>
+    <th>成交</th>
+    <th>挂单</th>
+    <th>时间</th>
+    <th>状态</th>
+    <th>操作</th>
+  </thead>
+<?foreach(db_page("select * from trade where user_id=? order by ctime desc",[mid()]) as $v):?>
+ <tr>
+   <td>
+     <?=$v['type'] == 0 ? '买入' : '卖出'?>
+   </td>
+   <td>
+     <?=$v['price']?>
+   </td>
+   <td>
+     <?=$v['amount']?>
+   </td>
+   <td>
+     <?=$v['deal']?>
+   </td>
+   <td>
+     <?=btcval($v['amount']-$v['deal'])?>
+   </td>
+   <td>
+     <?=date('Ymd H:i:s',$v['ctime'])?>
+   </td>
+   <td>
+     <?=$v['status'] == 0 ? '挂单' : ($v['status'] == 1 ? '完成' : '关闭')?>
+   </td>
+   <td>
+     <?=$v['status'] == 0 ? '<a href="/?act=trade_close&id='.$v['id'].'">关闭</a>':''?>
+   </td>
+ </tr>
+
+<?endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

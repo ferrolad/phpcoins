@@ -1,0 +1,7 @@
+<div class="list-group">
+<? foreach(db("select * from help order by sort desc")->fetchAll() as $v):?>
+  <a href="<?=url('help',['id'=>$v['id']])?>" class="list-group-item">
+    <?=$v['title']?>
+  </a>
+<? endforeach?>
+</div>

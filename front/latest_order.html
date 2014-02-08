@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-6">
+    <table>
+      <thead>
+	<th>挂单买入</th>
+	<th>数量</th>
+	<th>价格</th>
+      </thead>
+<? $k=0; foreach(db("select * from trade where status=0 and type=0 order by price desc limit 10")->fetchAll() as $v):$k++;?>
+      <tr>
+	<td>
+	  买(<?=$k?>)
+	</td>
+	<td>
+	  <?=$v['amount']?>
+	</td>
+	<td>
+	  <?=$v['price']?>
+	</td>
+      </tr>
+<? endforeach?>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table>
+      <thead>
+	<th>价格</th>
+	<th>数量</th>
+	<th>挂单卖出</th>
+      </thead>
+<? $k=0; foreach(db("select * from trade where status=0 and type=1 order by price asc limit 10")->fetchAll() as $v):$k++;?>
+      <tr>
+	<td>
+	  <?=$v['price']?>
+	</td>
+	<td>
+	  <?=$v['amount']?>
+	</td>
+	<td>
+	  卖(<?=$k?>)
+	</td>
+      </tr>
+<? endforeach?>
+
+    </table>
+  </div>
+</div>

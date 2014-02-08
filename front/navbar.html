@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="/"><?=config('text_logo')?></a>
+	</div>
+	<ul class="nav navbar-nav navbar-left">	
+	  <li><a href="<?=url('help')?>">帮助</a></li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+	  <? if(mid() <= 0):?>
+	  <li><a href="<?=url('blank',['show'=>'sign_in'])?>">登录</a></li>
+	  <li><a href="<?=url('blank',['show'=>'sign_up'])?>">注册</a></li>
+	  <li><a href="<?=url('blank',['show'=>'password_reset_send'])?>">忘记密码</a></li>
+	  <? else:?>
+	  <li><a href="<?=url('my')?>"><?=@user_info()['email']?></a></li>
+	  <li><a href="<?=url('log_out')?>">退出</a></li>
+	  <? endif?>
+	  <?if(DEV):?>
+	  <li><a href="<?=url('index',['admin'=>1])?>">后台</a></li>
+	  <? endif?>
+	</ul>
+      </div>
+    </div>
+  </div>
+</nav>

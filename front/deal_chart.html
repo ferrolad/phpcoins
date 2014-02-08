@@ -1,0 +1,57 @@
+<div class="well">
+  <div id="graphbox"></div>
+</div>
+<script>
+ $(document).ready(function(){
+   var datas =<?=json_encode(ohlc())?> , rates = [], vols = [];
+   for(i = 0; i < datas.length; i++){
+     rates.push([datas[i][0], parseFloat(datas[i][2],10), parseFloat(datas[i][3],10), parseFloat(datas[i][4],10), parseFloat(datas[i][5],10)]);
+     vols.push([datas[i][0], parseFloat(datas[i][1],10)]);
+   }
+
+   Highcharts.setOptions({
+     lang: {
+       loading: 'Loading...',
+       months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+       shortMonths: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+       weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+       decimalPoint: '.',
+       numericSymbols: ['k', 'M', 'G', 'T', 'P', 'E'],
+       resetZoom: 'Reset zoom',
+       resetZoomTitle: 'Reset zoom level 1:1',
+       thousandsSep: ','
+     },
+     credits: {enabled: false},
+     global:{useUTC:false},
+   });
+
+   new Highcharts.StockChart({
+     chart: { renderTo: 'graphbox'},
+     xAxis: { type: 'datetime' },
+     legend: { enabled: false },
+     tooltip: { xDateFormat: '%Y-%m-%d %H:%M %A', changeDecimals: 4 },
+     scrollbar: {enabled: false},
+     navigator: {enabled: false},
+     rangeSelector: {
+       buttons: [
+	 {type: 'minute', count: 60, text: '1h'},
+	 {type: 'minute', count: 120,text: '2h'},
+	 {type: 'minute', count: 360,text: '6h'},
+	 {type: 'minute', count: 720,text: '12h'},
+	 {type: 'day',    count: 1,  text: '1d'},
+	 {type: 'all', text: '所有'}
+       ],
+       selected: 5,
+       inputEnabled: false
+     },
+     yAxis: [
+       {  title: { text: '价格 [rmb]' }},
+       { title: { text: '成交量 [btc]' }, opposite: true }
+     ],
+     series: [
+       { animation: false, name: '成交量 [BTC]', type: 'column',  marker: { enabled: false }, yAxis: 1, data: vols },
+       { animation: false, name: '价格 [RMB]', type: 'candlestick', marker: { enabled: false }, data: rates }
+     ]
+   });
+ });
+</script>

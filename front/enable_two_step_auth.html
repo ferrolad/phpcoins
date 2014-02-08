@@ -1,0 +1,20 @@
+<div well>
+  <div class="container">
+<? if(!user_info()['secret_installed']):?>
+    <p>1. iPhone手机：在App Store中搜索Google Authenticator，<a href="http://itunes.apple.com/cn/app/google-authenticator/id388497605?mt=8">点此查看</a></p>
+<p>2. Android手机：在应用市场中搜索“谷歌身份验证器”，或搜索Google Authenticator，<a href="http://apk.hiapk.com/html/2013/07/1643619.html">点此下载</a>
+</p>
+    <p>安装认证器并打开，扫描下面的二维码安装</p>
+    <img src="<?=google_auth_qr_url()?>">
+    <br><br>
+<? endif?>
+    <p>在下面操作时使用双重认证</p>
+    <form act="auth_config">
+      <?=@form_checkbox(['label'=>'操作','id'=>'auth','col'=>[1,3],'item'=>[
+      ['value'=>'trade','checked'=>user_info()['auth_trade'],'label'=>'交易'],
+      ['value'=>'withdraw','checked'=>user_info()['auth_withdraw'],'label'=>'提现']]])?>
+      <?=@form_text(['label'=>'认证码:','id'=>'code'])?>
+      <?=@form_submit('确定')?>
+    </form>
+  </div>
+</div>

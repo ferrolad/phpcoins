@@ -1,0 +1,21 @@
+<br>
+<? if(DEV):?>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well">
+	  <? if(!empty($_SESSION['user_id'])):?>
+	<p>当前登录用户: UID:<?=user_info()['id']?> 认证码:<?=google_auth_code()?></p>
+		<? endif?>
+	使用其他用户登录:
+	<? foreach(db("select * from user") as $v):?>
+	<a href="<?=url('change_uid',['uid'=>$v['id']])?>"><?=$v['email']?></a>
+	<? endforeach?>
+      </div>
+    </div>
+  </div>
+</div>
+<? endif?>
+  </body>
+</html>
+

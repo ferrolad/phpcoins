@@ -1,0 +1,41 @@
+<table>
+  <thead>
+    <th>用户</th>
+    <th>金额</th>
+    <th>银行</th>
+    <th>卡号</th>
+    <th>姓名</th>
+    <th>时间</th>
+    <th>状态</th>
+    <th>操作</th>
+  </thead>
+<? foreach(db_page("select * from withdraw order by ctime desc") as $v):?>
+  <tr>
+    <td>
+      <?=user_info($v['user_id'])['email']?>
+    </td>
+    <td>
+      <?=$v['amount']?>
+    </td>
+    <td>
+      <?=$v['bank']?>
+    </td>
+    <td>
+      <?=$v['card']?>
+    </td>
+    <td>
+      <?=$v['name']?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+    <td>
+      <?=$v['status']==0?'等待中':'完成'?>
+    </td>
+    <td>
+      <?=$v['status']==0?'<a href="'.url('do_withdraw',['id'=>$v['id']]).'">设为完成</a>':''?>
+    </td>
+  </tr>
+<? endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

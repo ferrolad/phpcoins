@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <th>金额</th>
+    <th>时间</th>
+  </thead>
+  <?foreach(db_page("select * from recharge where user_id=? order by ctime desc",[mid()]) as $v):?>
+  <tr>
+    <td>
+      <?=$v['amount']?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+  </tr>
+  <?endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

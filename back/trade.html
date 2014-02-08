@@ -1,0 +1,41 @@
+<table>
+  <thead>
+    <th>用户</th>
+    <th>类型</th>
+    <th>价格</th>
+    <th>数量</th>
+    <th>交易</th>
+    <th>剩余</th>
+    <th>状态</th>
+    <th>时间</th>
+  </thead>
+<? foreach(db_page("select * from trade order by ctime desc") as $v):?>
+  <tr>
+    <td>
+      <?=user_info($v['user_id'])['email']?>
+    </td>
+    <td>
+      <?=$v['type']==0?'买入':'卖出'?>
+    </td>
+    <td>
+      <?=$v['price']?>
+    </td>
+    <td>
+      <?=$v['amount']?>
+    </td>
+    <td>
+      <?=$v['deal']?>
+    </td>
+    <td>
+      <?=$v['amount']-$v['deal']?>
+    </td>
+    <td>
+      <?=$v['status']==0?'挂单':($v['status']==1?'完成':'关闭')?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+  </tr>
+<? endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

@@ -1,0 +1,80 @@
+<div class="panel-group" id="my">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#my" href="#balance">
+	  资产
+	</a>
+      </h4>
+    </div>
+    <div id="balance" class="panel-collapse collapse in">
+      <div class="list-group no-margin-bottom">
+	<a href="<?=url('my',['show'=>'rmb_recharge'])?>" class="list-group-item">充值人民币</a>
+	<a href="<?=url('my',['show'=>'rmb_withdraw'])?>" class="list-group-item">提现人民币</a>
+	<a href="<?=url('my',['show'=>'transfer_btc_in'])?>" class="list-group-item">转入比特币</a>
+	<a href="<?=url('my',['show'=>'transfer_btc_out'])?>" class="list-group-item">转出比特币</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#my" href="#order">
+	  交易
+	</a>
+      </h4>
+    </div>
+    <div id="order" class="panel-collapse collapse in">
+      <div class="list-group no-margin-bottom">
+	<a href="<?=url('my',['show'=>'buy_btc'])?>" class="list-group-item">买入比特币</a>
+	<a href="<?=url('my',['show'=>'sell_btc'])?>" class="list-group-item">卖出比特币</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#my" href="#account">
+	  记录
+	</a>
+      </h4>
+    </div>
+    <div id="account" class="panel-collapse collapse in">
+      <div class="list-group no-margin-bottom">
+	<a href="<?=url('my',['show'=>'trade_record'])?>" class="list-group-item">交易记录</a>
+	<a href="<?=url('my',['show'=>'rmb_recharge_record'])?>" class="list-group-item">充值记录</a>
+	<a href="<?=url('my',['show'=>'rmb_withdraw_record'])?>" class="list-group-item">提现记录</a>
+	<a href="<?=url('my',['show'=>'btc_record'])?>" class="list-group-item">比特币转出记录</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#my" href="#security">
+	  安全
+	</a>
+      </h4>
+    </div>
+    <div id="security" class="panel-collapse collapse in">
+      <a href="<?=url('my',['show'=>'email_validate'])?>" class="list-group-item">验证邮箱</a>
+      <a href="<?=url('my',['show'=>'change_login_password'])?>" class="list-group-item">修改登录密码</a>
+      <a href="<?=url('my',['show'=>'change_deal_password'])?>" class="list-group-item">修改交易密码</a>
+      <a href="<?=url('my',['show'=>'enable_two_step_auth'])?>" class="list-group-item">双重认证设置</a>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+	<a data-toggle="collapse" data-parent="#my" href="#profile">
+	  资料
+	</a>
+      </h4>
+    </div>
+    <div id="profile" class="panel-collapse collapse in">
+      <div class="list-group no-margin-bottom">
+	<a href="<?=url('my',['show'=>'change_profile'])?>" class="list-group-item">修改资料</a>
+      </div>
+    </div>
+  </div>
+</div>

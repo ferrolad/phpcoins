@@ -1,0 +1,11 @@
+<div well>
+  <form act="buy_btc">
+    <?=@form_text(['label'=>'价格','id'=>'price','col'=>[2,3]])?>
+    <?=@form_text(['label'=>'数量','id'=>'amount'])?>
+    <?=@form_password(['label'=>'交易密码','id'=>'pin'])?>
+    <? if(user_info()['auth_trade']):?>
+    <?=@form_text(['label'=>'认证码','id'=>'auth'])?>
+    <? endif?>
+    <?=@form_submit('买入')?>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<? if(!empty($_REQUEST['id'])):?>
+<div class="well">
+  <p class="lead text-center">
+    <?=help(['id'=>@$_REQUEST['id']])['title']?>
+  </p>
+  <p>
+    <?=nl2br(help(['id'=>@$_REQUEST['id']])['body'])?>
+  </p>
+</div>
+<? endif?>

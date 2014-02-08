@@ -1,0 +1,45 @@
+<table>
+  <thead>
+    <th>邮箱</th>
+    <th>姓名</th>
+    <th>地址</th>
+    <th>可用人民币</th>
+    <th>冻结人民币</th>
+    <th>可用比特币</th>
+    <th>冻结比特币</th>
+    <th>转入比特币</th>
+    <th>时间</th>
+  </thead>
+<? foreach(db_page("select * from user order by ctime desc") as $v):?>
+  <tr>
+    <td>
+      <?=$v['email']?>
+    </td>
+    <td>
+      <?=$v['name']?>
+    </td>
+    <td>
+      <?=$v['address']?>
+    </td>
+    <td>
+      <?=$v['rmb']?>
+    </td>
+    <td>
+      <?=$v['rmb_frozen']?>
+    </td>
+    <td>
+      <?=$v['btc']?>
+    </td>
+    <td>
+      <?=$v['btc_frozen']?>
+    </td>
+    <td>
+      <?=$v['received']?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+  </tr>
+<? endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

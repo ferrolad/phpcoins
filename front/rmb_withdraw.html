@@ -1,0 +1,13 @@
+<div class="well clearfix">
+  <form act="withdraw">
+    <?=@form_static(['label'=>'最多可提:','value'=>user_info()['rmb'],'col'=>[2,3]])?>
+    <?=@form_text(['label'=>'金额:','id'=>'amount'])?>
+    <?=@form_text(['label'=>'银行:','id'=>'bank'])?>
+    <?=@form_text(['label'=>'卡号:','id'=>'card'])?>
+    <?=@form_text(['label'=>'姓名:','id'=>'name'])?>
+    <? if(user_info()['auth_withdraw']):?>
+    <?=@form_text(['label'=>'认证码:','id'=>'auth'])?>
+    <? endif?>
+    <?=@form_submit('提现')?>
+  </form>
+</div>

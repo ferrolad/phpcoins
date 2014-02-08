@@ -1,0 +1,8 @@
+<div class="well">
+  <p>人民币总计:<?=db("select sum(rmb+rmb_frozen) as sum from user")->fetch()['sum']?></p>
+  <p>比特币总计:<?=db("select sum(btc+btc_frozen) as sum from user")->fetch()['sum']?></p>
+  <p>冻结人民币总计:<?=db("select sum(rmb_frozen) as sum from user")->fetch()['sum']?></p>
+  <p>冻结比特币总计:<?=db("select sum(btc_frozen) as sum from user")->fetch()['sum']?></p>
+  <p>活动人民币总计:<?=db("select sum(rmb) as sum from user")->fetch()['sum']?></p>
+  <p>活动比特币总计:<?=db("select sum(btc) as sum from user")->fetch()['sum']?></p>
+</div>

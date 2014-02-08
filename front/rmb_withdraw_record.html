@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <th>银行</th>
+    <th>卡号</th>
+    <th>姓名</th>
+    <th>金额</th>
+    <th>时间</th>
+    <th>状态</th>
+  </thead>
+<?foreach(db_page("select * from withdraw where user_id=? order by ctime desc",[mid()]) as $v):?>
+  <tr>
+    <td>
+      <?=$v['bank']?>
+    </td>
+    <td>
+      <?=$v['card']?>
+    </td>
+    <td>
+      <?=$v['name']?>
+    </td>
+    <td>
+      <?=$v['amount']?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+    <td>
+      <?=$v['status'] == 0 ? '等待中' : '完成'?>
+    </td>
+  </tr>
+<?endforeach?>
+</table>
+<?=$GLOBALS['pager']?>

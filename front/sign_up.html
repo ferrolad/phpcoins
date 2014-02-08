@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div well>
+	<form act="sign_up">
+	  <?=@form_text(['label'=>'邮箱:','id'=>'email','col'=>[4,5]])?>
+	  <?=@form_password(['label'=>'登录密码:','id'=>'password'])?>
+	  <?=@form_password(['label'=>'再次输入登录密码:','id'=>'confirm_password'])?>
+	  <?=@form_password(['label'=>'交易密码:','id'=>'pin'])?>
+	  <?=@form_password(['label'=>'再次输入交易密码:','id'=>'confirm_pin'])?>
+	  <?=@form_submit('注册')?>
+	</form>
+      </div>
+    </div>
+  </div>
+</div>

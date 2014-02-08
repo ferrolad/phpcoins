@@ -1,0 +1,9 @@
+<ul class="list-group">
+  <li class="list-group-item">可用人民币:<?=user_info()['rmb']?></li>
+  <li class="list-group-item">冻结人民币:<?=user_info()['rmb_frozen']?></li>
+  <li class="list-group-item">可用比特币:<?=user_info()['btc']?></li>
+  <li class="list-group-item">冻结比特币:<?=user_info()['btc_frozen']?></li>
+  <li class="list-group-item">总资产折合人民币:<?=user_info()['rmb']+user_info()['rmb_frozen']+(user_info()['btc']+user_info()['btc_frozen'])*db("select price from trade where id=(select buy_trade  from deal order by ctime desc limit 1)")->fetch()['price']?></li>
+</ul>
+
+

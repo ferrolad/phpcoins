@@ -1,0 +1,12 @@
+<div class="well clearfix">
+  <form act="sell_btc">
+    <?=@form_text(['label'=>'价格:','id'=>'price','col'=>[2,3]])?>
+    <?=@form_static(['label'=>'最多可卖:','value'=>user_info()['btc']])?>
+    <?=@form_text(['label'=>'数量:','id'=>'amount'])?>
+    <?=@form_password(['label'=>'交易密码:','id'=>'pin'])?>
+    <? if(user_info()['auth_trade']):?>
+    <?=@form_text(['label'=>'认证码:','id'=>'auth'])?>
+    <? endif?>
+    <?=@form_submit('卖出')?>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+<div well>
+  <a href="<?=url(['show'=>'help_write'])?>" class="btn btn-default pull-right">新建</a>
+</div>
+<table>
+  <thead>
+    <th>标题</th>
+    <th>排序</th>
+    <th>操作</th>
+  </thead>
+<? foreach(db("select * from help order by sort desc")->fetchAll() as $v):?>
+  <tr>
+    <td>
+      <?=$v['title']?>
+    </td>
+    <td>
+      <?=$v['sort']?>
+    </td>
+    <td>
+      <a href="<?=url(['show'=>'help_read','id'=>$v['id']])?>">查看</a>
+      <a href="<?=url('help_del',['id'=>$v['id']])?>">删除</a>
+    </td>
+  </tr>
+<? endforeach?>
+</table>

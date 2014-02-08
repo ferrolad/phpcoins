@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <th>用户</th>
+    <th>金额</th>
+    <th>时间</th>
+  </thead>
+<? foreach(db_page("select * from recharge order by ctime desc") as $v):?>
+  <tr>
+    <td>
+      <?=user_info($v['user_id'])['email']?>
+    </td>
+    <td>
+      <?=$v['amount']?>
+    </td>
+    <td>
+      <?=date_full($v['ctime'])?>
+    </td>
+  </tr>
+<? endforeach?>
+</table>
+<?=$GLOBALS['pager']?>
